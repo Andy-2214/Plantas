@@ -1,0 +1,34 @@
+@model IEnumerable<Plantas.Models.Plant>
+
+<h2>Lista de Plantas</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Origen</th>
+            <th>Especie</th>
+            <th>Altura Máxima (m)</th>
+            <th>Notas</th>
+            <th>Imagen</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var planta in Model)
+    {
+        <tr>
+            <td>@planta.Nombre</td>
+            <td>@planta.Origen</td>
+            <td>@planta.Especie</td>
+            <td>@planta.Altura_Maxima</td>
+            <td>@planta.Notas</td>
+            <td>
+                @if (!string.IsNullOrEmpty(planta.Imagen))
+                {
+                    <img src='@planta.Imagen' alt='Imagen de @planta.Nombre' style='width:150px; height:auto;' />
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
